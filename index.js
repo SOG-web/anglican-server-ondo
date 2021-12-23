@@ -18,7 +18,7 @@ import {
 
 const app = express();
 
-const PORT = 5000;
+const PORT = 4042;
 
 const log = debug('app');
 const { green } = chalk;
