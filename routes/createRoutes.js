@@ -12,13 +12,13 @@ const router = express.Router();
 
 const { utcToZonedTime, format } = dateFnsTz;
 
-const newDate = new Date();
-const timeZone = 'Africa/Lagos';
-const zonedDate = utcToZonedTime(newDate, timeZone);
+// const newDate = new Date();
+// const timeZone = 'Africa/Lagos';
+// const zonedDate = utcToZonedTime(newDate, timeZone);
 
-const formattedDate = format(zonedDate, 'yyyy-MM-dd');
-const formattedTime = format(zonedDate, 'h:mm a');
-const formattedMonth = format(zonedDate, 'MMMM');
+// // const formattedDate = format(zonedDate, 'yyyy-MM-dd');
+// // const formattedTime = format(zonedDate, 'h:mm a');
+// const formattedMonth = format(zonedDate, 'MMMM');
 
 router.post(
   '/women',
@@ -61,6 +61,12 @@ router.post(
 
     // console.log(file);
 
+    const newDate = new Date();
+    const timeZone = 'Africa/Lagos';
+    const zonedDate = utcToZonedTime(newDate, timeZone);
+
+    const formattedMonth = format(zonedDate, 'MMMM');
+
     if (!file) {
       return res.json({ success: false, err: 'Please choose files' });
     }
@@ -94,6 +100,12 @@ router.post(
 
     // console.log(file);
 
+    const newDate = new Date();
+    const timeZone = 'Africa/Lagos';
+    const zonedDate = utcToZonedTime(newDate, timeZone);
+
+    const formattedMonth = format(zonedDate, 'MMMM');
+
     if (!file) {
       return res.json({ success: false, err: 'Please choose files' });
     }
@@ -126,6 +138,12 @@ router.post(
     const { title } = req.body;
 
     // console.log(file);
+
+    const newDate = new Date();
+    const timeZone = 'Africa/Lagos';
+    const zonedDate = utcToZonedTime(newDate, timeZone);
+
+    const formattedMonth = format(zonedDate, 'MMMM');
 
     if (!file) {
       return res.json({ success: false, err: 'Please choose files', file });
