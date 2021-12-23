@@ -1,12 +1,11 @@
 /* eslint-disable import/extensions */
 import { log } from 'debug';
 import { Strategy, ExtractJwt } from 'passport-jwt';
-import { SECRET } from '../config/config.js';
 import { getById } from '../db/dbOperation.js';
 
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: SECRET,
+  secretOrKey: 'efkug54$uvgc98',
 };
 
 // eslint-disable-next-line import/prefer-default-export

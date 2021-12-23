@@ -7,7 +7,6 @@ import debug from 'debug';
 import cors from 'cors';
 import path from 'path';
 import { errorHandler, requestLogger } from './utils/middleware.js';
-import { PORT } from './config/config.js';
 import { passAuth } from './auth/passport.js';
 import {
   createRoutes,
@@ -49,6 +48,6 @@ app.use(unknownEndpoint);
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  log(`server listing on ${green(PORT)}`);
+app.listen(3001, () => {
+  console.log(`server listing on ${green(3001)}`);
 });
