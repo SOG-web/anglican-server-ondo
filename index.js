@@ -18,6 +18,8 @@ import {
 
 const app = express();
 
+const PORT = 5000;
+
 const log = debug('app');
 const { green } = chalk;
 
@@ -48,6 +50,6 @@ app.use(unknownEndpoint);
 
 app.use(errorHandler);
 
-app.listen(3001, () => {
-  console.log(`server listing on ${green(3001)}`);
+app.listen(PORT, () => {
+  console.log(`server listing on ${green(PORT)}`);
 });
