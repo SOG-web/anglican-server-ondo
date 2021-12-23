@@ -4,6 +4,7 @@
 import {
   deleteDataById,
   getAll,
+  getByPred,
   insertData,
   updateDataById,
 } from '../db/dbOperation.js';
@@ -44,6 +45,16 @@ export const update = (res, data, tableName, id) => {
 
 export const remove = (res, tableName, id) => {
   deleteDataById(id, tableName)
+    .then((values) => {
+      res.json({ success: true, msg: values });
+    })
+    .catch((err) => {
+      res.json({ success: false, msg: err });
+    });
+};
+
+export const getByPredicate = (res, tableName, row, pred) => {
+  getByPred(pred, row, tableName)
     .then((values) => {
       res.json({ success: true, msg: values });
     })

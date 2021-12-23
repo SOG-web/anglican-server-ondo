@@ -4,31 +4,52 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { userLogin, userRegister } from '../auth/auth.js';
+import { post } from '../controllers/controller.js';
 
 const router = express.Router();
 
 router.post('/reg_users', (req, res) => {
+  const {
+    surname,
+    lastName,
+    otherName,
+    email,
+    church,
+    archdeaconry,
+    phoneNumber,
+    society,
+    roles,
+    birthDate,
+    weddingAnniversary,
+  } = req.body;
+
   const newUser = {
     id: uuidv4(),
-    name: req.body.name,
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password,
-    country: req.body.country,
-    role: 'users',
+    surname,
+    lastName,
+    otherName,
+    email,
+    church,
+    archdeaconry,
+    phoneNumber,
+    society,
+    roles,
+    birthDate,
+    weddingAnniversary,
+    role: 'members',
   };
   // console.log(req.body);
-  userRegister(newUser, 'users', res);
+  post(res, newUser, 'users');
 });
 
 router.post('/reg_admin', (req, res) => {
+  const { username, password, email } = req.body;
+
   const newUser = {
     id: uuidv4(),
-    name: req.body.name,
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password,
-    country: req.body.country,
+    username,
+    password,
+    email,
     role: 'admin',
   };
   // console.log(req.body);

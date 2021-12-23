@@ -1,15 +1,24 @@
 /* eslint-disable import/extensions,consistent-return */
+// noinspection DuplicatedCode
+
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
+import dateFnsTz from 'date-fns-tz';
 import { post } from '../controllers/controller.js';
 import store from '../middlewares/multer.js';
 import { checkRole, userAuth } from '../auth/auth.js';
 
 const router = express.Router();
 
-/**
- * TODO -> Get the current month in js in words
- */
+const { utcToZonedTime, format } = dateFnsTz;
+
+const newDate = new Date();
+const timeZone = 'Africa/Lagos';
+const zonedDate = utcToZonedTime(newDate, timeZone);
+
+const formattedDate = format(zonedDate, 'yyyy-MM-dd');
+const formattedTime = format(zonedDate, 'h:mm a');
+const formattedMonth = format(zonedDate, 'MMMM');
 
 router.post(
   '/women',
@@ -67,6 +76,7 @@ router.post(
       date,
       time,
       location,
+      month: formattedMonth,
     };
 
     post(res, news, 'news');
@@ -80,7 +90,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, date, time, location, month } = req.body;
+    const { title, details, date, time, location } = req.body;
 
     // console.log(file);
 
@@ -99,7 +109,7 @@ router.post(
       date,
       time,
       location,
-      month,
+      month: formattedMonth,
     };
 
     post(res, event, 'events');
@@ -128,6 +138,7 @@ router.post(
       title,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
+      month: formattedMonth,
     };
 
     post(res, gallery, 'gallery');
