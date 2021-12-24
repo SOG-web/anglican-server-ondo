@@ -14,7 +14,7 @@ export const passAuth = (passport) => {
   passport.use(
     new Strategy(opts, async (payload, done) => {
       // console.log(payload)
-      await getById(payload.user_id, 'users')
+      await getById(payload.user_id, 'admin')
         .then((user) => {
           // console.log(user[0].id);
           if (user[0].id === payload.user_id) {

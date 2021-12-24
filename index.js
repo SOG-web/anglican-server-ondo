@@ -15,6 +15,7 @@ import {
   updateRoutes,
   userRoutes,
 } from './routes/index.js';
+import pool from './config/dbConfig.js';
 
 const app = express();
 
@@ -22,6 +23,15 @@ const PORT = process.env.PORT || 5000;
 
 const log = debug('app');
 const { green } = chalk;
+
+pool
+  .getConnection()
+  .then(() => {
+    log(green('Connected to the database'));
+  })
+  .catch((err) => {
+    log(err);
+  });
 
 app.use(json());
 app.use(urlencoded({ extended: false }));
@@ -51,5 +61,5 @@ app.use(unknownEndpoint);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`server listing on ${green(PORT)}`);
+  log(`server listing on ${green(PORT)}`);
 });
