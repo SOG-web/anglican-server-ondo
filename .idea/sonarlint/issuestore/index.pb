@@ -30,17 +30,9 @@ C
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-F
-routes/deleteRoutes.js,d\d\ddeaffe660a762848a96b1706e01736a903ac0f6
-F
-routes/updateRoutes.js,6\f\6f0ef5bcddc2f0341b104147074e45c5fd09a8ff
-F
-routes/createRoutes.js,6\d\6d9c45afdd20709c5db721d5aaecf22cb82c8fc3
 A
 db/dbOperation.js,c\a\ca3fc2fa813b3b97dbdda241f3a5eb27d26f17d7
 I
 controllers/controller.js,4\f\4fb6d7d979387fe9d3f0ee2bac58690216178ff1
-D
-routes/readRoutes.js,5\3\5373a99a18836ac05646ae8fab9dbc85798252c3
 8
 tests.js,d\f\df6a091d1844505b07e077d5ec678869b3067b5a

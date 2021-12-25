@@ -2,7 +2,7 @@
 // noinspection UnnecessaryLocalVariableJS
 
 import express from 'express';
-import { get, getByPredicate } from "../controllers/controller.js";
+import { get, getByPredicate } from '../controllers/controller.js';
 
 const router = express.Router();
 
@@ -27,7 +27,7 @@ router.get('/churches', (req, res) => {
 });
 
 router.get('/priests', (req, res) => {
-  get(res, 'priest');
+  get(res, 'priests');
 });
 
 router.get('/members', (req, res) => {
