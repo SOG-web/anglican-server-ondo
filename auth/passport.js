@@ -2,23 +2,24 @@
 import { log } from 'debug';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 import { getById } from '../db/dbOperation.js';
+import { SECRET } from '../config/config.js';
 
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: 'efkug54$uvgc98',
+  secretOrKey: SECRET,
 };
 
 // eslint-disable-next-line import/prefer-default-export
 export const passAuth = (passport) => {
-  // console.log("pass begin");
+  log('pass begin');
   passport.use(
     new Strategy(opts, async (payload, done) => {
-      // console.log(payload)
+      log(payload);
       await getById(payload.user_id, 'admin')
         .then((user) => {
-          // console.log(user[0].id);
+          log(user[0].id);
           if (user[0].id === payload.user_id) {
-            // console.log(`user: ${true}`);
+            log(`user: ${true}`);
             return done(null, user);
           }
           log(`user: ${false}`);

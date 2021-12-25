@@ -23,7 +23,7 @@ const pool = mysql.createPool({
   host: 'dvcsssco.ceeadhh1sybt.us-east-2.rds.amazonaws.com',
   user: 'admin_dvcsssco',
   password: 'dvcsssc?!o1',
-  database: '',
+  database: 'anglican_ondo',
   port: 3306,
   waitForConnections: true,
   connectionLimit: 2000,

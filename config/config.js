@@ -12,7 +12,7 @@ export const { DB_PORT } = process.env;
 
 export const { DB_DATABASE } = process.env;
 
-export const { SECRET } = 'dydhwjyw245';
+export const SECRET = 'efkug54$uvgc98';
 
 // export const MONGODB_URI =
 //   process.env.NODE_ENV === "test" ? process.env.TEST_URI : process.env.URI;

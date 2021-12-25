@@ -23,25 +23,15 @@ A
 .prettierrc,2\0\20137a9e94744624390b6748bc96df5ca1579b71
 >
 .eslintrc.json,7\1\71c20a341bfe32aa5cd5b4384e94f942bab6a7d3
-@
-config/config.js,6\c\6ce7ce03babbccbd9b2d3b52b935730e1b03388e
-B
-config/dbConfig.js,f\e\fe7f77ecf007b984c44f05d84b5745088047a05c
 ?
 utils/logger.js,e\f\efde20281aabd76b0199110cf93b1da9fd96eef2
 C
 utils/middleware.js,1\0\106df30f65bf9213713bf023d1e810b8985993f5
-@
-auth/passport.js,c\6\c640525405c0ba9871b3f588bcdac2f5e8da8f7a
-<
-package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 F
 routes/deleteRoutes.js,d\d\ddeaffe660a762848a96b1706e01736a903ac0f6
-<
-auth/auth.js,2\e\2ec40ae0488b64830d3f99bafa0f1c4b6022c3a8
 F
 routes/updateRoutes.js,6\f\6f0ef5bcddc2f0341b104147074e45c5fd09a8ff
 F
@@ -51,10 +41,6 @@ A
 I
 controllers/controller.js,4\f\4fb6d7d979387fe9d3f0ee2bac58690216178ff1
 D
-routes/userRoutes.js,e\9\e9eb043515685faf25833d70ef475596fc6e333d
-D
 routes/readRoutes.js,5\3\5373a99a18836ac05646ae8fab9dbc85798252c3
 8
 tests.js,d\f\df6a091d1844505b07e077d5ec678869b3067b5a
-8
-index.js,a\7\a77b15c0d64cf6111e025645e562faf8ccabb9d7

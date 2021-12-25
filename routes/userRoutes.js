@@ -53,11 +53,11 @@ router.post('/reg_admin', (req, res) => {
     role: 'admin',
   };
   // console.log(req.body);
-  userRegister(newUser, 'users', res);
+  userRegister(newUser, 'admin', res);
 });
 
 router.post('/login', (req, res) => {
-  userLogin(req.body, 'users', res);
+  userLogin(req.body, 'admin', res);
 });
 
 const userRoutes = router;

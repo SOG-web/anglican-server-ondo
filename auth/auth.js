@@ -15,7 +15,8 @@ import { getByPred, insertData } from '../db/dbOperation.js';
 
 const validateUsername = async (username, tablename) => {
   const user = await getByPred(username, 'username', tablename);
-  log(`username on registration : ${user.length}`);
+  // log(`username on registration : ${user}`);
+  // log(`username on registration : ${user.length}`);
   return user.length !== 0;
 };
 
@@ -91,6 +92,8 @@ export const userLogin = async (userCreds, tablename, res) => {
         success: false,
       });
     }
+
+    log(user);
 
     /**
      * That means user is existing
