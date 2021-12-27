@@ -2,9 +2,12 @@
 // noinspection UnnecessaryLocalVariableJS
 
 import express from 'express';
+import dateFnsTz from 'date-fns-tz';
 import { update } from '../controllers/controller.js';
 import store from '../middlewares/multer.js';
 import { checkRole, userAuth } from '../auth/auth.js';
+
+const { utcToZonedTime, format } = dateFnsTz;
 
 const router = express.Router();
 
@@ -47,6 +50,14 @@ router.post(
 
     // console.log(file);
 
+    const newDate = new Date();
+    const timeZone = 'Africa/Lagos';
+    const zonedDate = utcToZonedTime(newDate, timeZone);
+
+    const formattedMonth = format(zonedDate, 'MMMM');
+    const formattedDate = format(zonedDate, 'yyyy-MM-dd');
+    const formattedTime = format(zonedDate, 'h:mm a');
+
     if (!file) {
       return res.json({ success: false, err: 'Please choose files' });
     }
@@ -59,9 +70,10 @@ router.post(
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
-      date,
-      time,
+      date: formattedDate,
+      time: formattedTime,
       location,
+      month: formattedMonth,
     };
 
     update(res, news, 'news', id);
@@ -75,9 +87,17 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, date, time, location, id } = req.body;
+    const { title, details, location, id } = req.body;
 
     // console.log(file);
+
+    const newDate = new Date();
+    const timeZone = 'Africa/Lagos';
+    const zonedDate = utcToZonedTime(newDate, timeZone);
+
+    const formattedMonth = format(zonedDate, 'MMMM');
+    const formattedDate = format(zonedDate, 'yyyy-MM-dd');
+    const formattedTime = format(zonedDate, 'h:mm a');
 
     if (!file) {
       return res.json({ success: false, err: 'Please choose files' });
@@ -91,9 +111,10 @@ router.post(
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
-      date,
-      time,
+      date: formattedDate,
+      time: formattedTime,
       location,
+      month: formattedMonth,
     };
 
     update(res, event, 'events', id);
@@ -111,6 +132,12 @@ router.post(
 
     // console.log(file);
 
+    const newDate = new Date();
+    const timeZone = 'Africa/Lagos';
+    const zonedDate = utcToZonedTime(newDate, timeZone);
+
+    const formattedMonth = format(zonedDate, 'MMMM');
+
     if (!file) {
       return res.json({ success: false, err: 'Please choose files', file });
     }
@@ -122,6 +149,7 @@ router.post(
       title,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
+      month: formattedMonth,
     };
 
     update(res, gallery, 'gallery', id);

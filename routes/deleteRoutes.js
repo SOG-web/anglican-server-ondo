@@ -11,7 +11,7 @@ const router = express.Router();
 router.delete('/women', userAuth, checkRole(['admin']), (req, res) => {
   const { id, image } = req.body;
 
-  unlink(`../public/uploads/${image}`, (err) => {
+  unlink(`public/uploads/${image}`, (err) => {
     if (err) {
       return res.json({
         success: false,
@@ -25,7 +25,7 @@ router.delete('/women', userAuth, checkRole(['admin']), (req, res) => {
 router.delete('/news', userAuth, checkRole(['admin']), (req, res) => {
   const { id, image } = req.body;
 
-  unlink(`../public/uploads/${image}`, (err) => {
+  unlink(`public/uploads/${image}`, (err) => {
     if (err) {
       return res.json({
         success: false,
@@ -39,7 +39,7 @@ router.delete('/news', userAuth, checkRole(['admin']), (req, res) => {
 router.delete('/event', userAuth, checkRole(['admin']), (req, res) => {
   const { id, image } = req.body;
 
-  unlink(`../public/uploads/${image}`, (err) => {
+  unlink(`public/uploads/${image}`, (err) => {
     if (err) {
       return res.json({
         success: false,
@@ -53,7 +53,7 @@ router.delete('/event', userAuth, checkRole(['admin']), (req, res) => {
 router.delete('/gallery', userAuth, checkRole(['admin']), (req, res) => {
   const { id, image } = req.body;
 
-  unlink(`../public/uploads/${image}`, (err) => {
+  unlink(`public/uploads/${image}`, (err) => {
     if (err) {
       return res.json({
         success: false,
@@ -67,7 +67,7 @@ router.delete('/gallery', userAuth, checkRole(['admin']), (req, res) => {
 router.delete('/church', userAuth, checkRole(['admin']), (req, res) => {
   const { id, image } = req.body;
 
-  unlink(`../public/uploads/${image}`, (err) => {
+  unlink(`public/uploads/${image}`, (err) => {
     if (err) {
       return res.json({
         success: false,
@@ -81,7 +81,7 @@ router.delete('/church', userAuth, checkRole(['admin']), (req, res) => {
 router.delete('/priest', userAuth, checkRole(['admin']), (req, res) => {
   const { id, image } = req.body;
 
-  unlink(`../public/uploads/${image}`, (err) => {
+  unlink(`public/uploads/${image}`, (err) => {
     if (err) {
       return res.json({
         success: false,

@@ -16,8 +16,8 @@ const { utcToZonedTime, format } = dateFnsTz;
 // const timeZone = 'Africa/Lagos';
 // const zonedDate = utcToZonedTime(newDate, timeZone);
 
-// // const formattedDate = format(zonedDate, 'yyyy-MM-dd');
-// // const formattedTime = format(zonedDate, 'h:mm a');
+// const formattedDate = format(zonedDate, 'yyyy-MM-dd');
+// const formattedTime = format(zonedDate, 'h:mm a');
 // const formattedMonth = format(zonedDate, 'MMMM');
 
 router.post(
@@ -57,7 +57,8 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, date, time, location } = req.body;
+    // console.log(req);
+    const { title, details, location } = req.body;
 
     // console.log(file);
 
@@ -66,9 +67,13 @@ router.post(
     const zonedDate = utcToZonedTime(newDate, timeZone);
 
     const formattedMonth = format(zonedDate, 'MMMM');
+    const formattedDate = format(zonedDate, 'yyyy-MM-dd');
+    const formattedTime = format(zonedDate, 'h:mm a');
 
     if (!file) {
-      return res.json({ success: false, err: 'Please choose files' });
+      return res
+        .status(404)
+        .json({ success: false, err: 'Please choose files' });
     }
     // generating the url of the server
     const url = `${req.protocol}://${req.get('host')}`;
@@ -79,8 +84,8 @@ router.post(
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
-      date,
-      time,
+      date: formattedDate,
+      time: formattedTime,
       location,
       month: formattedMonth,
     };
@@ -96,7 +101,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, date, time, location } = req.body;
+    const { title, details, location } = req.body;
 
     // console.log(file);
 
@@ -105,6 +110,8 @@ router.post(
     const zonedDate = utcToZonedTime(newDate, timeZone);
 
     const formattedMonth = format(zonedDate, 'MMMM');
+    const formattedDate = format(zonedDate, 'yyyy-MM-dd');
+    const formattedTime = format(zonedDate, 'h:mm a');
 
     if (!file) {
       return res.json({ success: false, err: 'Please choose files' });
@@ -118,8 +125,8 @@ router.post(
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
-      date,
-      time,
+      date: formattedDate,
+      time: formattedTime,
       location,
       month: formattedMonth,
     };

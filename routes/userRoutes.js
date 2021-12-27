@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable import/extensions */
 // noinspection JSIgnoredPromiseFromCall,UnnecessaryLocalVariableJS
 
@@ -5,10 +6,11 @@ import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { userLogin, userRegister } from '../auth/auth.js';
 import { post } from '../controllers/controller.js';
+import store from '../middlewares/multer.js';
 
 const router = express.Router();
 
-router.post('/reg_users', (req, res) => {
+router.post('/reg_users', store.single('image'), (req, res) => {
   const {
     surname,
     lastName,
@@ -22,6 +24,13 @@ router.post('/reg_users', (req, res) => {
     birthDate,
     weddingAnniversary,
   } = req.body;
+  const { file } = req;
+
+  if (!file) {
+    return res.json({ success: false, err: 'Please choose files' });
+  }
+  // generating the url of the server
+  const url = `${req.protocol}://${req.get('host')}`;
 
   const newUser = {
     id: uuidv4(),
@@ -36,6 +45,8 @@ router.post('/reg_users', (req, res) => {
     roles,
     birthDate,
     weddingAnniversary,
+    imageUrl: `${url}/public/uploads/${file.filename}`,
+    image: file.filename,
     role: 'members',
   };
   // console.log(req.body);

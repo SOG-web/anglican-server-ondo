@@ -44,6 +44,8 @@ app.use(passport.initialize());
 
 passAuth(passport);
 
+app.use('/public/uploads', express.static('./public/uploads'));
+
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.use('/api/create', createRoutes);

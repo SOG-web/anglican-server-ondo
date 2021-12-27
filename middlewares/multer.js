@@ -1,21 +1,26 @@
 /* eslint-disable consistent-return */
 import multer from 'multer';
 
-const DIR = '../public/uploads';
+const DIR = 'public/uploads';
 // set storage
 const storage = multer.diskStorage({
-  destination(req, file, cb) {
+  destination: (req, file, cb) => {
     cb(null, DIR);
   },
-  filename(req, file, cb) {
+  filename: (req, file, cb) => {
     // Get file extension name
     const ext = file.originalname.substr(file.originalname.lastIndexOf('.'));
 
     // Generate random file name
-    const filename = req.body.title + ext;
-
-    // Set file name
-    cb(null, filename);
+    if (req.body.surname) {
+      const filename = req.body.surname + ext;
+      // Set file name
+      cb(null, filename);
+    } else {
+      const filename = req.body.title + ext;
+      // Set file name
+      cb(null, filename);
+    }
   },
 });
 
