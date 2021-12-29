@@ -11,8 +11,6 @@ T
 $.idea/codeStyles/codeStyleConfig.xml,d\d\dd7b3350c29c49497756c7f32c69a3bed18b1cba
 ?
 routes/index.js,3\0\30dfc417d69af8ed298ed4111dcab68f38ca7f54
-E
-middlewares/multer.js,1\d\1dd32393832ceae5c6bdeb1cb281a3b06f3a8d43
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 E
@@ -32,12 +30,8 @@ C
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 A
 db/dbOperation.js,c\a\ca3fc2fa813b3b97dbdda241f3a5eb27d26f17d7
-I
-controllers/controller.js,4\f\4fb6d7d979387fe9d3f0ee2bac58690216178ff1
 8
 tests.js,d\f\df6a091d1844505b07e077d5ec678869b3067b5a
-<
-package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 B
 config/dbConfig.js,f\e\fe7f77ecf007b984c44f05d84b5745088047a05c
 <
@@ -50,11 +44,7 @@ F
 routes/deleteRoutes.js,d\d\ddeaffe660a762848a96b1706e01736a903ac0f6
 F
 routes/updateRoutes.js,6\f\6f0ef5bcddc2f0341b104147074e45c5fd09a8ff
-F
-routes/createRoutes.js,6\d\6d9c45afdd20709c5db721d5aaecf22cb82c8fc3
 @
 auth/passport.js,c\6\c640525405c0ba9871b3f588bcdac2f5e8da8f7a
 D
 routes/readRoutes.js,5\3\5373a99a18836ac05646ae8fab9dbc85798252c3
-8
-index.js,a\7\a77b15c0d64cf6111e025645e562faf8ccabb9d7

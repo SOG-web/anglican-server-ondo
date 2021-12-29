@@ -91,6 +91,7 @@ router.post(
     };
 
     post(res, news, 'news');
+    // res.json({ success: true, data: news });
   }
 );
 
@@ -101,17 +102,9 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, location } = req.body;
+    const { title, details, date, time } = req.body;
 
     // console.log(file);
-
-    const newDate = new Date();
-    const timeZone = 'Africa/Lagos';
-    const zonedDate = utcToZonedTime(newDate, timeZone);
-
-    const formattedMonth = format(zonedDate, 'MMMM');
-    const formattedDate = format(zonedDate, 'yyyy-MM-dd');
-    const formattedTime = format(zonedDate, 'h:mm a');
 
     if (!file) {
       return res.json({ success: false, err: 'Please choose files' });
@@ -125,10 +118,10 @@ router.post(
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
-      date: formattedDate,
-      time: formattedTime,
-      location,
-      month: formattedMonth,
+      date,
+      time,
+      location: 'testing',
+      month: 'will be removed',
     };
 
     post(res, event, 'events');

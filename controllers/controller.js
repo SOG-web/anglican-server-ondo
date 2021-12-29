@@ -26,7 +26,7 @@ export const get = (res, tableName) => {
 export const post = (res, data, tableName) => {
   insertData(data, tableName)
     .then((values) => {
-      res.json({ success: true, msg: values });
+      res.json({ success: true, msgDb: values, data });
     })
     .catch((err) => {
       res.json({ success: false, msg: err });
