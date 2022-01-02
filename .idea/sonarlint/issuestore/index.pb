@@ -48,3 +48,13 @@ F
 auth/passport.js,c\6\c640525405c0ba9871b3f588bcdac2f5e8da8f7a
 D
 routes/readRoutes.js,5\3\5373a99a18836ac05646ae8fab9dbc85798252c3
+E
+middlewares/multer.js,1\d\1dd32393832ceae5c6bdeb1cb281a3b06f3a8d43
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
+8
+index.js,a\7\a77b15c0d64cf6111e025645e562faf8ccabb9d7
+I
+controllers/controller.js,4\f\4fb6d7d979387fe9d3f0ee2bac58690216178ff1
+F
+routes/createRoutes.js,6\d\6d9c45afdd20709c5db721d5aaecf22cb82c8fc3

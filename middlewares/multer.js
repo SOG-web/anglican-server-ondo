@@ -12,15 +12,9 @@ const storage = multer.diskStorage({
     const ext = file.originalname.substr(file.originalname.lastIndexOf('.'));
 
     // Generate random file name
-    if (req.body.surname) {
-      const filename = req.body.surname + ext;
-      // Set file name
-      cb(null, filename);
-    } else {
-      const filename = req.body.title + ext;
-      // Set file name
-      cb(null, filename);
-    }
+    const filename = req.body.id + ext;
+    // Set file name
+    cb(null, filename);
   },
 });
 

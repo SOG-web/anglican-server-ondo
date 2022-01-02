@@ -2,7 +2,6 @@
 // noinspection DuplicatedCode
 
 import express from 'express';
-import { v4 as uuidv4 } from 'uuid';
 import dateFnsTz from 'date-fns-tz';
 import { post } from '../controllers/controller.js';
 import store from '../middlewares/multer.js';
@@ -27,7 +26,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, category } = req.body;
+    const { title, details, category, id } = req.body;
 
     // console.log(file);
 
@@ -38,7 +37,7 @@ router.post(
     const url = `${req.protocol}://${req.get('host')}`;
 
     const women = {
-      id: uuidv4(),
+      id,
       title,
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
@@ -58,7 +57,7 @@ router.post(
   (req, res) => {
     const { file } = req;
     // console.log(req);
-    const { title, details, location } = req.body;
+    const { title, details, location, id } = req.body;
 
     // console.log(file);
 
@@ -79,7 +78,7 @@ router.post(
     const url = `${req.protocol}://${req.get('host')}`;
 
     const news = {
-      id: uuidv4(),
+      id,
       title,
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
@@ -102,7 +101,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, date, time } = req.body;
+    const { title, details, date, time, id } = req.body;
 
     // console.log(file);
 
@@ -113,7 +112,7 @@ router.post(
     const url = `${req.protocol}://${req.get('host')}`;
 
     const event = {
-      id: uuidv4(),
+      id,
       title,
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
@@ -135,7 +134,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title } = req.body;
+    const { title, id } = req.body;
 
     // console.log(file);
 
@@ -152,7 +151,7 @@ router.post(
     const url = `${req.protocol}://${req.get('host')}`;
 
     const gallery = {
-      id: uuidv4(),
+      id,
       title,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
@@ -170,7 +169,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { name, location } = req.body;
+    const { name, location, id } = req.body;
 
     // console.log(file);
 
@@ -181,7 +180,7 @@ router.post(
     const url = `${req.protocol}://${req.get('host')}`;
 
     const church = {
-      id: uuidv4(),
+      id,
       name,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
@@ -199,7 +198,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { name, position } = req.body;
+    const { name, position, id } = req.body;
 
     // console.log(file);
 
@@ -210,7 +209,7 @@ router.post(
     const url = `${req.protocol}://${req.get('host')}`;
 
     const priest = {
-      id: uuidv4(),
+      id,
       name,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
