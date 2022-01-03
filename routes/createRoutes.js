@@ -200,7 +200,7 @@ router.post(
     const { file } = req;
     const { name, position, id } = req.body;
 
-    // console.log(file);
+    // console.log(req.body);
 
     if (!file) {
       return res.json({ success: false, err: 'Please choose files', file });

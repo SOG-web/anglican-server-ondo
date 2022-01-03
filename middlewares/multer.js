@@ -12,6 +12,7 @@ const storage = multer.diskStorage({
     const ext = file.originalname.substr(file.originalname.lastIndexOf('.'));
 
     // Generate random file name
+    // console.log(req.body);
     const filename = req.body.id + ext;
     // Set file name
     cb(null, filename);

@@ -1,0 +1,1 @@
+SELECT * FROM anglican_ondo.priests;

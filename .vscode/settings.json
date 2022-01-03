@@ -1,3 +1,19 @@
 {
-  "cSpell.words": ["tablename"]
+  "cSpell.words": ["tablename"],
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "dvcsssco.ceeadhh1sybt.us-east-2.rds.amazonaws.com",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "dvcsssco",
+      "group": "dvcsssco",
+      "database": "anglican_ondo",
+      "username": "admin_dvcsssco",
+      "password": "dvcsssc?!o1"
+    }
+  ]
 }
