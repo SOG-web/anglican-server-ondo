@@ -46,7 +46,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, date, time, location, id } = req.body;
+    const { title, details, location, id } = req.body;
 
     // console.log(file);
 
@@ -87,17 +87,9 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, location, id } = req.body;
+    const { title, details, date, time, id, location } = req.body;
 
     // console.log(file);
-
-    const newDate = new Date();
-    const timeZone = 'Africa/Lagos';
-    const zonedDate = utcToZonedTime(newDate, timeZone);
-
-    const formattedMonth = format(zonedDate, 'MMMM');
-    const formattedDate = format(zonedDate, 'yyyy-MM-dd');
-    const formattedTime = format(zonedDate, 'h:mm a');
 
     if (!file) {
       return res.json({ success: false, err: 'Please choose files' });
@@ -111,10 +103,10 @@ router.post(
       details,
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
-      date: formattedDate,
-      time: formattedTime,
+      date,
+      time,
       location,
-      month: formattedMonth,
+      month: 'might be removed',
     };
 
     update(res, event, 'events', id);
@@ -128,7 +120,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, id } = req.body;
+    const { title, id, month } = req.body;
 
     // console.log(file);
 
@@ -150,6 +142,7 @@ router.post(
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
       month: formattedMonth,
+      monthCreated: month,
     };
 
     update(res, gallery, 'gallery', id);

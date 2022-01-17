@@ -14,6 +14,7 @@ import {
   readRoutes,
   updateRoutes,
   userRoutes,
+  singleRoutes,
 } from './routes/index.js';
 import pool from './config/dbConfig.js';
 
@@ -53,6 +54,7 @@ app.use('/api/update', updateRoutes);
 app.use('/api/read', readRoutes);
 app.use('/api/delete', deleteRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/single', singleRoutes);
 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' });

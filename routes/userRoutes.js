@@ -23,6 +23,9 @@ router.post('/reg_users', store.single('image'), (req, res) => {
     roles,
     birthDate,
     weddingAnniversary,
+    baptismalDate,
+    confirmationDate,
+    id,
   } = req.body;
   const { file } = req;
 
@@ -33,7 +36,7 @@ router.post('/reg_users', store.single('image'), (req, res) => {
   const url = `${req.protocol}://${req.get('host')}`;
 
   const newUser = {
-    id: uuidv4(),
+    id,
     surname,
     lastName,
     otherName,
@@ -45,6 +48,8 @@ router.post('/reg_users', store.single('image'), (req, res) => {
     roles,
     birthDate,
     weddingAnniversary,
+    baptismalDate,
+    confirmationDate,
     imageUrl: `${url}/public/uploads/${file.filename}`,
     image: file.filename,
     role: 'members',

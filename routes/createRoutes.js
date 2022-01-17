@@ -101,7 +101,7 @@ router.post(
   store.single('image'),
   (req, res) => {
     const { file } = req;
-    const { title, details, date, time, id } = req.body;
+    const { title, details, date, time, id, location } = req.body;
 
     // console.log(file);
 
@@ -119,8 +119,8 @@ router.post(
       image: file.filename,
       date,
       time,
-      location: 'testing',
-      month: 'will be removed',
+      location,
+      month: 'might be removed',
     };
 
     post(res, event, 'events');
@@ -156,6 +156,7 @@ router.post(
       imageUrl: `${url}/public/uploads/${file.filename}`,
       image: file.filename,
       month: formattedMonth,
+      monthCreated: formattedMonth,
     };
 
     post(res, gallery, 'gallery');
