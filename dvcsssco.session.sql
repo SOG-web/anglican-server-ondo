@@ -1,1 +1,90 @@
-SELECT * FROM anglican_ondo.priests;
+USE anglican_ondo;
+
+-- DROP TABLE IF EXISTS news;
+-- DROP TABLE IF EXISTS events;
+-- DROP TABLE IF EXISTS gallery;
+-- DROP TABLE IF EXISTS churches;
+-- DROP TABLE IF EXISTS priests;
+-- DROP TABLE IF EXISTS women;
+-- DROP TABLE IF EXISTS admin;
+-- DROP TABLE IF EXISTS users;
+
+
+-- CREATE TABLE news (
+-- id VARCHAR(255) NOT NULL PRIMARY KEY,
+-- title VARCHAR(255) NOT NULL,
+-- details VARCHAR(255) NOT NULL,
+-- imageUrl VARCHAR(255) NOT NULL,
+-- image VARCHAR(255) NOT NULL,
+-- date VARCHAR(255) NOT NULL,
+-- time VARCHAR(255) NOT NULL,
+-- location VARCHAR(255) NOT NULL,
+-- month VARCHAR(255) NOT NULL);
+
+-- CREATE TABLE events (
+-- id VARCHAR(255) NOT NULL PRIMARY KEY,
+-- title VARCHAR(255) NOT NULL,
+-- details VARCHAR(255) NOT NULL,
+-- imageUrl VARCHAR(255) NOT NULL,
+-- image VARCHAR(255) NOT NULL,
+-- date VARCHAR(255) NOT NULL,
+-- time VARCHAR(255) NOT NULL,
+-- location VARCHAR(255) NOT NULL,
+-- month VARCHAR(255) NOT NULL);
+
+-- CREATE TABLE gallery (
+-- id VARCHAR(255) NOT NULL PRIMARY KEY,
+-- title VARCHAR(255) NOT NULL,
+-- imageUrl VARCHAR(255) NOT NULL,
+-- image VARCHAR(255) NOT NULL,
+-- month VARCHAR(255) NOT NULL,
+-- monthCreated VARCHAR(255) NOT NULL);
+
+-- CREATE TABLE churches (
+-- id VARCHAR(255) NOT NULL PRIMARY KEY,
+-- name VARCHAR(255) NOT NULL,
+-- imageUrl VARCHAR(255) NOT NULL,
+-- image VARCHAR(255) NOT NULL,
+-- location VARCHAR(255) NOT NULL);
+
+-- CREATE TABLE priests (
+-- id VARCHAR(255) NOT NULL PRIMARY KEY,
+-- name VARCHAR(255) NOT NULL,
+-- imageUrl VARCHAR(255) NOT NULL,
+-- image VARCHAR(255) NOT NULL,
+-- position VARCHAR(255) NOT NULL);
+
+-- CREATE TABLE women (
+-- id VARCHAR(255) NOT NULL PRIMARY KEY,
+-- title VARCHAR(255) NOT NULL,
+-- details VARCHAR(255) NOT NULL,
+-- imageUrl VARCHAR(255) NOT NULL,
+-- image VARCHAR(255) NOT NULL,
+-- category VARCHAR(255) NOT NULL);
+
+-- CREATE TABLE admin (
+-- id VARCHAR(255) NOT NULL PRIMARY KEY,
+-- username VARCHAR(255) NOT NULL,
+-- password VARCHAR(255) NOT NULL,
+-- email VARCHAR(255) NOT NULL,
+-- role VARCHAR(255) NOT NULL DEFAULT 'admin');
+
+-- CREATE TABLE users (
+-- id VARCHAR(255) NOT NULL PRIMARY KEY,
+-- surname VARCHAR(255) NOT NULL,
+-- lastName VARCHAR(255) NOT NULL,
+-- otherName VARCHAR(255) NOT NULL,
+-- email VARCHAR(255) NOT NULL,
+-- church VARCHAR(255) NOT NULL,
+-- archdeaconry VARCHAR(255) NOT NULL,
+-- phoneNumber VARCHAR(255) NOT NULL,
+-- society VARCHAR(255) NOT NULL,
+-- roles VARCHAR(255) NOT NULL,
+-- birthDate VARCHAR(255) NOT NULL,
+-- weddingAnniversary VARCHAR(255) NOT NULL,
+-- baptismalDate VARCHAR(255) NOT NULL,
+-- confirmationDate VARCHAR(255) NOT NULL,
+-- imageUrl VARCHAR(255) NOT NULL,
+-- image VARCHAR(255) NOT NULL,
+-- role VARCHAR(255) NOT NULL DEFAULT 'members');
+
