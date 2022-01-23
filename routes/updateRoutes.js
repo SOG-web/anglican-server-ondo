@@ -26,6 +26,7 @@ router.post(
     // generating the url of the server
     const url = `${req.protocol}://${req.get('host')}`;
 
+    // update rutes
     const women = {
       id,
       title,
@@ -64,6 +65,7 @@ router.post(
     // generating the url of the server
     const url = `${req.protocol}://${req.get('host')}`;
 
+    // update routes
     const news = {
       id,
       title,
@@ -97,6 +99,7 @@ router.post(
     // generating the url of the server
     const url = `${req.protocol}://${req.get('host')}`;
 
+    // update routes
     const event = {
       id,
       title,
@@ -136,6 +139,7 @@ router.post(
     // generating the url of the server
     const url = `${req.protocol}://${req.get('host')}`;
 
+    // update routes
     const gallery = {
       id,
       title,
@@ -166,6 +170,7 @@ router.post(
     // generating the url of the server
     const url = `${req.protocol}://${req.get('host')}`;
 
+    // update routes
     const church = {
       id,
       name,
@@ -195,6 +200,7 @@ router.post(
     // generating the url of the server
     const url = `${req.protocol}://${req.get('host')}`;
 
+    // update routes
     const priest = {
       id,
       name,
