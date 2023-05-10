@@ -1,0 +1,97 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model News {
+  id       String @id @unique @default(uuid())
+  title    String
+  details  String
+  imageUrl String
+  image    String
+  date     String
+  time     String
+  location String
+  month    String
+}
+
+model Events {
+  id       String @id @unique @default(uuid())
+  title    String
+  details  String
+  imageUrl String
+  image    String
+  date     String
+  time     String
+  location String
+  month    String
+}
+
+model Gallery {
+  id           String @id @unique @default(uuid())
+  title        String
+  imageUrl     String
+  image        String
+  month        String
+  monthCreated String
+}
+
+model Churches {
+  id       String @id @unique @default(uuid())
+  name     String
+  imageUrl String
+  image    String
+  location String
+}
+
+model Priests {
+  id       String @id @unique @default(uuid())
+  name     String
+  imageUrl String
+  image    String
+  position String
+}
+
+model Women {
+  id       String @id @unique @default(uuid())
+  title    String
+  details  String
+  imageUrl String
+  image    String
+  category String
+}
+
+model Admin {
+  id       String @id @unique @default(uuid())
+  username String
+  password String
+  email    String @unique
+  role     String
+}
+
+model Users {
+  id                 String @id @unique @default(uuid())
+  surname            String
+  lastName           String
+  otherName          String
+  email              String @unique
+  church             String
+  archdeaconry       String
+  phoneNumber        String @unique
+  society            String
+  roles              String
+  birthDate          String
+  weddingAnniversary String
+  baptismalDate      String
+  confirmationDate   String
+  imageUrl           String
+  image              String
+  role               String
+}

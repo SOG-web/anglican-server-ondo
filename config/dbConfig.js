@@ -20,11 +20,11 @@ import { DB_DATABASE, DB_PASSWORD, DB_PORT, DB_USER } from './config.js';
 //   timeout: 60 * 60 * 1000,
 // });
 const pool = mysql.createPool({
-  host: 'dvcsssco.ceeadhh1sybt.us-east-2.rds.amazonaws.com',
+  host: '212.224.86.90',
   user: 'admin_dvcsssco',
   password: 'dvcsssc?!o1',
   database: 'anglican_ondo',
-  port: 3306,
+  port: 5549,
   waitForConnections: true,
   connectionLimit: 2000,
   // connectionLimit: 1000,

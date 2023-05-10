@@ -20,7 +20,7 @@ import pool from './config/dbConfig.js';
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = 5002;
 
 const log = debug('app');
 const { green } = chalk;
@@ -64,6 +64,7 @@ app.use(unknownEndpoint);
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
+app.listen(5000, () => {
+  // console.log(`server listing on ${green(PORT)}`); // eslint-disable-line no-console
   log(`server listing on ${green(PORT)}`);
 });
