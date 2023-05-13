@@ -15,3 +15,4 @@ The debug package works differently on linux and windows
 
 - Windows setting - set DEBUG=app,app:\* & nodemon index.js
 - Linux setting - DEBUG=app,app:\* nodemon index.js
+- Macos setting - DEBUG=app,app:\* nodemon index.js
