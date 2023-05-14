@@ -34,6 +34,4 @@ router.post('/members', (req, res) => {
   getByPredicate(res, 'users', 'id', id);
 });
 
-const singleRoutes = router;
-
-export default singleRoutes;
+export default router;

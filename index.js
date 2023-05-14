@@ -1,70 +1,50 @@
-/* eslint-disable import/extensions */
-import express, { json, urlencoded } from 'express';
-import passport from 'passport';
-// eslint-disable-next-line import/no-unresolved
-import chalk from 'chalk';
-import debug from 'debug';
 import cors from 'cors';
 import path from 'path';
-import { errorHandler, requestLogger } from './utils/middleware.js';
-import { passAuth } from './auth/passport.js';
-import {
-  createRoutes,
-  deleteRoutes,
-  readRoutes,
-  updateRoutes,
-  userRoutes,
-  singleRoutes,
-} from './routes/index.js';
+import chalk from 'chalk';
+import debug from 'debug';
+import express from 'express';
+import passport from 'passport';
 import pool from './config/dbConfig.js';
+import * as routes from './routes/index.js'
+import { passAuth } from './auth/passport.js';
+import * as middlewares from './utils/middleware.js';
 
 const app = express();
-
-const PORT = 5002;
-
-const log = debug('app');
 const { green } = chalk;
+const log = debug('app');
+const PORT = process.env.PORT || 5000;
 
 pool
+  // databse connection
   .getConnection()
-  .then(() => {
-    log(green('Connected to the database'));
-  })
-  .catch((err) => {
-    log(err);
-  });
+  .then(() => { log(green('Connected to the database')) })
+  .catch(log);
 
-app.use(json());
-app.use(urlencoded({ extended: false }));
+// main configuration
 app.use(cors());
-app.use(requestLogger);
+app.use(express.json());
+app.use(middlewares.requestLogger);
+app.use(express.urlencoded({ extended: false }));
 
+// assets files
 app.use(express.static(path.join(path.resolve(), 'public')));
-
-app.use(passport.initialize());
-
-passAuth(passport);
-
 app.use('/public/uploads', express.static('./public/uploads'));
 
-app.get('/', (req, res) => res.send('Hello World!'));
+// passport
+app.use(passport.initialize());
+passAuth(passport);
 
-app.use('/api/create', createRoutes);
-app.use('/api/update', updateRoutes);
-app.use('/api/read', readRoutes);
-app.use('/api/delete', deleteRoutes);
-app.use('/api/user', userRoutes);
-app.use('/api/single', singleRoutes);
+// routes
+app.use('/', routes.homeRoute);
+app.use('/api/read', routes.readRoutes);
+app.use('/api/user', routes.userRoutes);
+app.use('/api/create', routes.createRoutes);
+app.use('/api/update', routes.updateRoutes);
+app.use('/api/delete', routes.deleteRoutes);
+app.use('/api/single', routes.singleRoutes);
 
-const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: 'unknown endpoint' });
-};
+// error handlers
+app.use(middlewares.errorHandler);
+app.use(middlewares.unknownEndpoint);
 
-app.use(unknownEndpoint);
-
-app.use(errorHandler);
-
-app.listen(5000, () => {
-  // console.log(`server listing on ${green(PORT)}`); // eslint-disable-line no-console
-  log(`server listing on ${green(PORT)}`);
-});
+app.listen(PORT, () => { log(`server listing on port ${green(PORT)}`); });

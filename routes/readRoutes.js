@@ -1,39 +1,36 @@
 /* eslint-disable import/extensions */
 // noinspection UnnecessaryLocalVariableJS
-
 import express from 'express';
 import { get, getByPredicate } from '../controllers/controller.js';
 
 const router = express.Router();
 
-router.get('/women', (req, res) => {
+router.get('/women', (_req, res) => {
   get(res, 'women');
 });
 
-router.get('/events', (req, res) => {
+router.get('/events', (_req, res) => {
   get(res, 'events');
 });
 
-router.get('/gallery', (req, res) => {
+router.get('/gallery', (_req, res) => {
   get(res, 'gallery');
 });
 
-router.get('/news', (req, res) => {
+router.get('/news', (_req, res) => {
   get(res, 'news');
 });
 
-router.get('/churches', (req, res) => {
+router.get('/churches', (_req, res) => {
   get(res, 'churches');
 });
 
-router.get('/priests', (req, res) => {
+router.get('/priests', (_req, res) => {
   get(res, 'priests');
 });
 
-router.get('/members', (req, res) => {
+router.get('/members', (_req, res) => {
   getByPredicate(res, 'users', 'role', 'members');
 });
 
-const readRoutes = router;
-
-export default readRoutes;
+export default router;

@@ -92,6 +92,4 @@ router.delete('/priest', userAuth, checkRole(['admin']), (req, res) => {
   });
 });
 
-const deleteRoutes = router;
-
-export default deleteRoutes;
+export default router;

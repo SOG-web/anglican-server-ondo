@@ -213,6 +213,4 @@ router.post(
   }
 );
 
-const updateRoutes = router;
-
-export default updateRoutes;
+export default router;

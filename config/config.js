@@ -1,18 +1,7 @@
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
+config();
 
-dotenv.config();
-
-export const PORT = 3000;
-
-export const { DB_USER } = process.env;
-
-export const { DB_PASSWORD } = process.env;
-
-export const { DB_PORT } = process.env;
-
-export const { DB_DATABASE } = process.env;
 
 export const SECRET = 'efkug54$uvgc98';
 
-// export const MONGODB_URI =
-//   process.env.NODE_ENV === "test" ? process.env.TEST_URI : process.env.URI;
+export const { DB_USER, DB_PASSWORD, DB_PORT, DB_DATABASE, DB_HOST, PORT } = process.env;

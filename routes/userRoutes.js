@@ -76,6 +76,4 @@ router.post('/login', (req, res) => {
   userLogin(req.body, 'admin', res);
 });
 
-const userRoutes = router;
-
-export default userRoutes;
+export default router;

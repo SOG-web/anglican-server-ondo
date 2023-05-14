@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import mysql from 'mysql2/promise';
-import { DB_DATABASE, DB_PASSWORD, DB_PORT, DB_USER } from './config.js';
+import * as db from './config.js';
 
 /**
  * TODO -> Create the database
@@ -33,4 +33,12 @@ const pool = mysql.createPool({
   // timeout: 60 * 60 * 1000,
 });
 
-export default pool;
+export default mysql.createPool({
+  host: db.DB_HOST,
+  user: db.DB_USER,
+  port: db.DB_PORT,
+  connectionLimit: 8000,
+  waitForConnections: true,
+  database: db.DB_DATABASE,
+  password: db.DB_PASSWORD,
+});

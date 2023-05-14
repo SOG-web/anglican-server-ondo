@@ -221,7 +221,4 @@ router.post(
   }
 );
 
-// noinspection UnnecessaryLocalVariableJS
-const createRoutes = router;
-
-export default createRoutes;
+export default router;
