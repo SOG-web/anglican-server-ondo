@@ -35,7 +35,7 @@ app.use(passport.initialize());
 passAuth(passport);
 
 // routes
-app.use('/', routes.homeRoute);
+app.use('/', routes.homeRoutes);
 app.use('/api/read', routes.readRoutes);
 app.use('/api/user', routes.userRoutes);
 app.use('/api/create', routes.createRoutes);
